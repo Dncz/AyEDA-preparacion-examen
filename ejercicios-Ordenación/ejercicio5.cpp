@@ -12,3 +12,21 @@
 #include <iostream>
 #include <vector>
 
+void mergeSort(std::vector<int>& v, int ini, int fin) {
+
+}
+
+
+
+int main(void) {
+  std::vector<int> v = {4, 7, 6, 5, 3, 8, 9, 10, 1, 2};
+  int i = 0;
+  int f = v.size() -1;
+  int pivote = v[(i + f) /2];
+  std::cout << pivote << std::endl;
+
+
+
+  
+  return 0;
+}

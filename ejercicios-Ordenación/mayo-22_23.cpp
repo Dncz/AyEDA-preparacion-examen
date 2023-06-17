@@ -17,7 +17,7 @@
 #include <vector>
 
 void orderByInsertionSort(std::vector<int> &v, int start, int end) {
-  for (int i = start + 1; i < end; i++) {
+  for (int i = start + 1; i <= end; i++) {
     int key = v[i];
     int j = i - 1;
     while (j >= start && v[j] > key) {
@@ -29,10 +29,10 @@ void orderByInsertionSort(std::vector<int> &v, int start, int end) {
 }
 
 
-void orderByQuickSort(std::vector<int> &v, int ini, int end) {
+void orderByQuickSort(std::vector<int> &v, unsigned ini, int end) {
 
-  int i = ini;
-  int f = end;
+  unsigned i = ini;
+  unsigned f = end;
   int p = v[(i + f) / 2] ;
   // std::cout << "Valores\n i (ini) = " 
   //           << i << std::endl
@@ -61,37 +61,56 @@ void orderByQuickSort(std::vector<int> &v, int ini, int end) {
       f--;
     }
   }
-  // if (ini < f) orderByQuickSort(v, ini, f);
-  // if (i < end) orderByQuickSort(v, i, end);
-}
 
-int main () {
-  std::cout << "Ejercicio de polimorfismo - examen Mayo 22-23\n";
-  // elementos desordenados
-  // std::vector<int> v = { 1, 6, 2, 4, 7, 5, 3};
-  std::vector<int> v = {3, 4,	1, 8, 9, 7, 10, 2, 5, 6};
-  
-  // primera iteración con quicksort
-  int pivote = v[v.size() / 2];
-  std::cout << "pivote = " << pivote << std::endl;
-  // primero tengo que hacer el algoritmo de quicksort
-  // para que así tenga los valores a la izq del pivote
-  // menores que el pivote y los de la derecha mayores que el pivote
-  // y luego ordenar con insertion sort
-  //
-  orderByQuickSort(v, 0, v.size() - 1);
+  std::cout << "Se aplica quicksort" << std::endl; 
   for (auto i : v) {
     std::cout << i << " ";
   }
   std::cout << std::endl;
 
   // primer subvector con insertion sort
-  orderByInsertionSort(v, 0, pivote);
+  if (ini <= f) {
+    orderByInsertionSort(v, 0, f);
+    std::cout << "Se aplica selectionsort desde ini = 0, f = " << f << std::endl;
+    for (auto i : v) {
+      std::cout << i << " ";
+    }
+    std::cout << std::endl;
+  }
+  
   // segundo subvector con insertion sort
-  orderByInsertionSort(v, pivote, v.size());
+  if (i < v.size()) {
+    std::cout << "Se aplica selectionsort desde i = " << i << " , end = " << v.size() << std::endl;
+    orderByInsertionSort(v, i, v.size() -1);
 
+    for (auto i : v) {
+      std::cout << i << " ";
+    }
+    std::cout << std::endl;
+  }
+}
+
+int main () {
+  std::cout << "Ejercicio de polimorfismo - examen Mayo 22-23\n";
+  // elementos desordenados
+  std::vector<int> v = {3, 4,	1, 8, 9, 7, 10, 2, 5, 6};
+  
+  // primera iteración con quicksort
+  int pivote = v[v.size() / 2];
+  std::cout << "pivote = " << pivote << std::endl;
+
+  std::cout << "Vector original: "; 
   for (auto i : v) {
     std::cout << i << " ";
   }
-
+  std::cout << std::endl;
+  // 
+  // std::cout << "index_piv = " << index_piv << std::endl;
+  // primero tengo que hacer el algoritmo de quicksort
+  // para que así tenga los valores a la izq del pivote
+  // menores que el pivote y los de la derecha mayores que el pivote
+  // y luego ordenar con insertion sort
+  //
+  orderByQuickSort(v, 0, v.size() - 1);
+  return 0;  
 }
