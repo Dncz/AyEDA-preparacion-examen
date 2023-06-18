@@ -2,15 +2,15 @@ IDIR = ../
 CXX		  := g++
 CXX_FLAGS := -I$(IDIR) -Wswitch -Wall -Wextra -std=c++17 -ggdb -Wno-return-type 
 
-EXECUTABLE	:= ejercicio6
+EXECUTABLE	:= funciones
 
 .PHONY: all
-_OBJ = ejercicio6.o
+_OBJ = funciones.o
 OBJ = $(patsubst %,$(IDIR)/%,$(_OBJ))
 
 all: $(EXECUTABLE)
 
-$(IDIR)/ejercicio6.o: $(IDIR)/ejercicio6.cpp
+$(IDIR)/funciones.o: $(IDIR)/funciones.cpp
 	$(CXX) $(CXX_FLAGS) -c -o $@ $<
 
 $(EXECUTABLE): $(OBJ)
