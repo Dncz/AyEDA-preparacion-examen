@@ -32,6 +32,7 @@ void selection(std::vector<int> &v, int ini) {
   }
 }
 
+// mezcla en ambos partes de menor a mayor
 void mezcla(std::vector<int> &v, unsigned cen) {
   unsigned i = 0;
   unsigned j = cen + 1;
