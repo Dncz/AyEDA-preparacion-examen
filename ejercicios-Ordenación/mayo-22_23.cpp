@@ -7,11 +7,7 @@
 // y desde el pivote hasta el final con insertion sort
 // la ordenación es por la derecha y por la izquierda...
 //
-// según copilot:
-// EXPLICACIÓN: https://www.youtube.com/watch?v=COk73cpQbFQ
-// EXPLICACIÓN: https://www.youtube.com/watch?v=ROalU379l3U
-// EXPLICACIÓN: https://www.youtube.com/watch?v=JU767SDMDvA
-// 
+
 
 #include <iostream>
 #include <vector>
